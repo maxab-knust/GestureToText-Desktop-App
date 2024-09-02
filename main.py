@@ -539,15 +539,16 @@ class Ui_SLRSMainWindow(object):
         sequence-to-sequence model using LSTMs, and is trained using the Adam optimizer and categorical cross-entropy
         loss. The model is saved as 'Action.h5' in the current working directory.
         """
-        # Initialize PyQt application
-        app = QtWidgets.QApplication([])
-
         # Set up parameters for training
         data_path = 'Actions_Data'
         sequence_length = 30
         test_size = 0.05
         epochs = 2000
 
+        #Notify user that training is in progress
+        self.clear()
+        self.textoutput.insertPlainText("Training in progress...")
+        
         # Get action labels
         actions = np.array(action_names(data_path))
         print(f"Actions: {actions}")
@@ -602,6 +603,7 @@ class Ui_SLRSMainWindow(object):
             ytrue = np.argmax(y_test, axis=1).tolist()
             yhat = np.argmax(yhat, axis=1).tolist()
             accuracy = accuracy_score(ytrue, yhat)
+            self.clear()
             self.textoutput.insertPlainText(f"Accuracy: {accuracy} \n Training completed...")
             self.statusbar.showMessage("Training completed...")
             
