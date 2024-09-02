@@ -64,4 +64,4 @@ TensorFlow: A machine learning library.
 PyQt6: A set of Python bindings for the Qt application framework.
 
 Authors
-[Abayitey and Cobbinah Anthony] - Initial development and maintenance.
+[Abayitey Maxwell and Cobbinah Anthony] - Initial development and maintenance.
